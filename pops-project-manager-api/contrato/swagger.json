@@ -1,0 +1,1765 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "POPS Project Manager API",
+        "description": "API para gerenciamento de projetos e skills",
+        "contact": {
+            "name": "POPS Team",
+            "email": "gyulia.piqueira@sptech.school"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8082/api",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/skills/enable/{id}": {
+            "put": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "enableSkill",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skills/disable/{id}": {
+            "put": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "disableSkill",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skill-types/enable/{id}": {
+            "put": {
+                "tags": [
+                    "skill-type-controller"
+                ],
+                "operationId": "enableType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skill-types/disable/{id}": {
+            "put": {
+                "tags": [
+                    "skill-type-controller"
+                ],
+                "operationId": "disableType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/projects/enable/{id}": {
+            "put": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "enableProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/projects/disable/{id}": {
+            "put": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "disableProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-types/enable/{id}": {
+            "put": {
+                "tags": [
+                    "project-type-controller"
+                ],
+                "operationId": "enableType_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-types/disable/{id}": {
+            "put": {
+                "tags": [
+                    "project-type-controller"
+                ],
+                "operationId": "disableType_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-status/enable/{id}": {
+            "put": {
+                "tags": [
+                    "project-status-controller"
+                ],
+                "operationId": "enableStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-status/disable/{id}": {
+            "put": {
+                "tags": [
+                    "project-status-controller"
+                ],
+                "operationId": "disableStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skills": {
+            "get": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "listSkills",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "createSkill",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SkillCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Skill"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skill-types": {
+            "get": {
+                "tags": [
+                    "skill-type-controller"
+                ],
+                "operationId": "listActiveTypes",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "skill-type-controller"
+                ],
+                "operationId": "createType",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SkillTypeCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SkillTypeEntity"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/projects": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "listActiveProjects",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "createProject",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Project"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-types": {
+            "get": {
+                "tags": [
+                    "project-type-controller"
+                ],
+                "operationId": "listActiveTypes_1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "project-type-controller"
+                ],
+                "operationId": "createType_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectTypeCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProjectTypeEntity"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-status": {
+            "get": {
+                "tags": [
+                    "project-status-controller"
+                ],
+                "operationId": "listActivestatus",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "project-status-controller"
+                ],
+                "operationId": "createStatus",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectStatusCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProjectStatusEntity"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skills/{id}": {
+            "get": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "getSkillById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SkillResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "deleteSkill",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "updateSkill",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SkillUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skill-types/{id}": {
+            "get": {
+                "tags": [
+                    "skill-type-controller"
+                ],
+                "operationId": "getTypeById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SkillTypeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "skill-type-controller"
+                ],
+                "operationId": "deleteType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "skill-type-controller"
+                ],
+                "operationId": "updateType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SkillTypeUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/projects/{id}": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "getProjectById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "deleteProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "updateProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Project"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-types/{id}": {
+            "get": {
+                "tags": [
+                    "project-type-controller"
+                ],
+                "operationId": "getTypeById_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProjectTypeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "project-type-controller"
+                ],
+                "operationId": "deleteType_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "project-type-controller"
+                ],
+                "operationId": "updateType_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectTypeUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-status/{id}": {
+            "get": {
+                "tags": [
+                    "project-status-controller"
+                ],
+                "operationId": "getStatusById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProjectStatusResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "project-status-controller"
+                ],
+                "operationId": "deleteStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "project-status-controller"
+                ],
+                "operationId": "updateStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectStatusUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skills/type/{typeId}": {
+            "get": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "listSkillsByType",
+                "parameters": [
+                    {
+                        "name": "typeId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skills/pageable": {
+            "get": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "listSkillsPagination",
+                "parameters": [
+                    {
+                        "name": "pageable",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Pageable"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skills/inactive": {
+            "get": {
+                "tags": [
+                    "skill-controller"
+                ],
+                "operationId": "listInactiveSkills",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/skill-types/inactive": {
+            "get": {
+                "tags": [
+                    "skill-type-controller"
+                ],
+                "operationId": "listInactiveTypes",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/projects/status/{statusId}": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "listProjectsByStatus",
+                "parameters": [
+                    {
+                        "name": "statusId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/projects/pageable": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "listProjectsPagination",
+                "parameters": [
+                    {
+                        "name": "pageable",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Pageable"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/projects/inactive": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "operationId": "listInactiveProjects",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-types/inactive": {
+            "get": {
+                "tags": [
+                    "project-type-controller"
+                ],
+                "operationId": "listInactiveTypes_1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project-status/inactive": {
+            "get": {
+                "tags": [
+                    "project-status-controller"
+                ],
+                "operationId": "listInactivestatus",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "SkillCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "typeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "required": [
+                    "name",
+                    "typeId"
+                ]
+            },
+            "Skill": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/SkillTypeEntity"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "active",
+                    "name",
+                    "type"
+                ]
+            },
+            "SkillTypeEntity": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "active",
+                    "name"
+                ]
+            },
+            "SkillTypeCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 0
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "minLength": 0
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "ProjectCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "typeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "statusId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "budget": {
+                        "type": "number"
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "area": {
+                        "type": "string"
+                    },
+                    "skillIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "skillIds",
+                    "statusId"
+                ]
+            },
+            "Project": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/ProjectTypeEntity"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/ProjectStatusEntity"
+                    },
+                    "budget": {
+                        "type": "number"
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "area": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "requiredSkills": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Skill"
+                        },
+                        "uniqueItems": true
+                    }
+                },
+                "required": [
+                    "active",
+                    "name",
+                    "requiredSkills",
+                    "status"
+                ]
+            },
+            "ProjectStatusEntity": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "active",
+                    "name"
+                ]
+            },
+            "ProjectTypeEntity": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "active",
+                    "name"
+                ]
+            },
+            "ProjectTypeCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 0
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "minLength": 0
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "ProjectStatusCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 0
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "minLength": 0
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "SkillUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "typeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "SkillTypeUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 0
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "minLength": 0
+                    }
+                }
+            },
+            "ProjectUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "typeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "statusId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "budget": {
+                        "type": "number"
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "area": {
+                        "type": "string"
+                    },
+                    "skillIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "ProjectTypeUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 0
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "minLength": 0
+                    }
+                }
+            },
+            "ProjectStatusUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 0
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "minLength": 0
+                    }
+                }
+            },
+            "SkillResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/SkillTypeResponse"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "active",
+                    "name",
+                    "type"
+                ]
+            },
+            "SkillTypeResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "active",
+                    "name"
+                ]
+            },
+            "Pageable": {
+                "type": "object",
+                "properties": {
+                    "page": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 0
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 1
+                    },
+                    "sort": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ProjectTypeResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "active",
+                    "name"
+                ]
+            },
+            "ProjectStatusResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "active",
+                    "name"
+                ]
+            }
+        }
+    }
+}

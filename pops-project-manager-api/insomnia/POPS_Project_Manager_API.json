@@ -1,0 +1,583 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-10-14T21:30:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_skills_list",
+      "parentId": "fld_skills",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/skills",
+      "name": "Listar Skills",
+      "description": "Lista todas as skills ativas",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_skills_create",
+      "parentId": "fld_skills",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/skills",
+      "name": "Criar Skill",
+      "description": "Cria uma nova skill",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"React\",\n  \"description\": \"Biblioteca JavaScript para interfaces de usuário\",\n  \"type\": \"HARD\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000001,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_skills_get_by_id",
+      "parentId": "fld_skills",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/skills/1",
+      "name": "Buscar Skill por ID",
+      "description": "Busca uma skill específica pelo ID",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000002,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_skills_get_by_type",
+      "parentId": "fld_skills",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/skills/type/HARD",
+      "name": "Listar Skills por Tipo",
+      "description": "Lista skills por tipo (HARD ou SOFT)",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000003,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_skills_update",
+      "parentId": "fld_skills",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/skills/1",
+      "name": "Atualizar Skill",
+      "description": "Atualiza uma skill existente",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Java Atualizado\",\n  \"description\": \"Linguagem de programação Java - versão atualizada\",\n  \"type\": \"HARD\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000004,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_skills_disable",
+      "parentId": "fld_skills",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/skills/disable/1",
+      "name": "Desabilitar Skill",
+      "description": "Desabilita uma skill (soft delete)",
+      "method": "PUT",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000005,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_skills_enable",
+      "parentId": "fld_skills",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/skills/enable/1",
+      "name": "Habilitar Skill",
+      "description": "Habilita uma skill previamente desabilitada",
+      "method": "PUT",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000006,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_skills_delete",
+      "parentId": "fld_skills",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/skills/1",
+      "name": "Excluir Skill",
+      "description": "Exclui permanentemente uma skill",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000007,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_projects_list",
+      "parentId": "fld_projects",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/projects",
+      "name": "Listar Projetos Ativos",
+      "description": "Lista todos os projetos ativos",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_projects_create",
+      "parentId": "fld_projects",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/projects",
+      "name": "Criar Projeto",
+      "description": "Cria um novo projeto",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Sistema de E-commerce\",\n  \"type\": \"Desenvolvimento Web\",\n  \"description\": \"Sistema completo de e-commerce com carrinho, pagamentos e gestão de produtos\",\n  \"status\": \"PLANNING\",\n  \"budget\": 150000.00,\n  \"startDate\": \"2024-11-01\",\n  \"endDate\": \"2025-06-30\",\n  \"area\": \"Tecnologia\",\n  \"requiredSkills\": [\n    {\n      \"id\": 1\n    },\n    {\n      \"id\": 2\n    },\n    {\n      \"id\": 3\n    }\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000001,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_projects_get_by_id",
+      "parentId": "fld_projects",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/projects/1",
+      "name": "Buscar Projeto por ID",
+      "description": "Busca um projeto específico pelo ID",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000002,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_projects_get_by_status",
+      "parentId": "fld_projects",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/projects/status/IN_PROGRESS",
+      "name": "Listar Projetos por Status",
+      "description": "Lista projetos por status específico",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000003,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_projects_update",
+      "parentId": "fld_projects",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/projects/1",
+      "name": "Atualizar Projeto",
+      "description": "Atualiza um projeto existente",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Sistema de Gestão de Projetos - Atualizado\",\n  \"type\": \"Desenvolvimento\",\n  \"description\": \"Sistema completo para gerenciar projetos, equipes e recursos - versão 2.0\",\n  \"status\": \"IN_PROGRESS\",\n  \"budget\": 60000.00,\n  \"startDate\": \"2024-09-01\",\n  \"endDate\": \"2024-12-31\",\n  \"area\": \"Tecnologia\",\n  \"requiredSkills\": [\n    {\n      \"id\": 1\n    },\n    {\n      \"id\": 2\n    },\n    {\n      \"id\": 3\n    },\n    {\n      \"id\": 4\n    }\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000004,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_projects_disable",
+      "parentId": "fld_projects",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/projects/disable/1",
+      "name": "Desabilitar Projeto",
+      "description": "Desabilita um projeto (soft delete)",
+      "method": "PUT",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000005,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_projects_enable",
+      "parentId": "fld_projects",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/projects/enable/1",
+      "name": "Habilitar Projeto",
+      "description": "Habilita um projeto previamente desabilitado",
+      "method": "PUT",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000006,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_projects_delete",
+      "parentId": "fld_projects",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/projects/1",
+      "name": "Excluir Projeto",
+      "description": "Exclui permanentemente um projeto",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1697328000007,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_health_check",
+      "parentId": "fld_health",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/actuator/health",
+      "name": "Health Check",
+      "description": "Verifica se a aplicação está funcionando",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1697328000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_swagger_ui",
+      "parentId": "fld_health",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "url": "{{ _.base_url }}/swagger-ui.html",
+      "name": "Swagger UI",
+      "description": "Acessa a documentação interativa da API",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1697328000001,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_skills",
+      "parentId": "wrk_pops_api",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "name": "Skills",
+      "description": "Endpoints para gerenciamento de skills",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1697328000000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_projects",
+      "parentId": "wrk_pops_api",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "name": "Projects",
+      "description": "Endpoints para gerenciamento de projetos",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1697328000001,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_health",
+      "parentId": "wrk_pops_api",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "name": "Health & Documentation",
+      "description": "Endpoints de saúde e documentação",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1697328000002,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_pops_api",
+      "parentId": null,
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "name": "POPS Project Manager API",
+      "description": "API para gerenciamento de projetos e skills",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_base",
+      "parentId": "wrk_pops_api",
+      "modified": 1697328000000,
+      "created": 1697328000000,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:8082/api"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1697328000000,
+      "_type": "environment"
+    }
+  ]
+}
+
+
+
+

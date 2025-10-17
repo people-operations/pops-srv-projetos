@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: pops-srv-projects
+
+server:
+  servlet:
+    context-path: /api
+  port: 8082
+
+odoo:
+  url: https://grupo-pops1.odoo.com/jsonrpc
+  db: grupo-pops1
+  uid: 2
+  password: agustd10
+
+firebase:
+  service-account-path: C:/keys/pops-srv-employee-firebase-adminsdk-fbsvc-e86c8fbf1b.json
