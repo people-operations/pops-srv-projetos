@@ -1,464 +1,14 @@
 type: collection.insomnia.rest/5.0
 name: POPS Project Manager API
 meta:
-  id: wrk_7b02ff1d5b03449283feccc955bc73d6
-  created: 1760656161593
-  modified: 1760656161593
+  id: wrk_51ff5bb46bb74ec78d5a4a4b773c19dc
+  created: 1760736659827
+  modified: 1760736659827
   description: ""
 collection:
-  - name: Projects
-    meta:
-      id: fld_1630db3811434630b6e1459eab4c0093
-      created: 1697328000000
-      modified: 1760675882553
-      sortKey: -1697328000001
-      description: Endpoints para gerenciamento de projetos
-    children:
-      - url: "{{ _.base_url }}/projects/disable/1"
-        name: Desabilitar Projeto
-        meta:
-          id: req_58bc5949e725424aac540548415f5b5c
-          created: 1697328000000
-          modified: 1760670459764
-          isPrivate: false
-          description: Desabilita um projeto (soft delete)
-          sortKey: -1697328000005
-        method: PUT
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/projects/1"
-        name: Atualizar Projeto
-        meta:
-          id: req_80486d9345934ab7ab0d011d85b82a0f
-          created: 1697328000000
-          modified: 1760670461237
-          isPrivate: false
-          description: Atualiza um projeto existente
-          sortKey: -1697328000004
-        method: PATCH
-        body:
-          mimeType: application/json
-          text: >-
-            {
-              "name": "Sistema de Gestão de Projetos - Atualizado",
-              "typeId": 0,
-              "description": "Sistema completo para gerenciar projetos, equipes e recursos - versão 2.0",
-              "statusId": 0,
-              "budget": 0.00,
-              "startDate": "2024-09-01",
-              "endDate": "2024-12-31",
-              "area": "Tecnologia",
-              "skillIds": [
-                1, 2, 3
-              ]
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/projects/enable/1"
-        name: Habilitar Projeto
-        meta:
-          id: req_886fa125eaf24b0191927cbec37ececd
-          created: 1697328000000
-          modified: 1760670162659
-          isPrivate: false
-          description: Habilita um projeto previamente desabilitado
-          sortKey: -1697328000006
-        method: PUT
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/projects/1"
-        name: Excluir Projeto
-        meta:
-          id: req_b8d05b3563be42bab763de12274df866
-          created: 1697328000000
-          modified: 1760670160750
-          isPrivate: false
-          description: Exclui permanentemente um projeto
-          sortKey: -1697328000007
-        method: DELETE
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/projects/1"
-        name: Buscar Projeto por ID
-        meta:
-          id: req_beced207709c49ae95e9557560742392
-          created: 1697328000000
-          modified: 1697328000000
-          isPrivate: false
-          description: Busca um projeto específico pelo ID
-          sortKey: -1697328000002
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/projects"
-        name: Criar Projeto
-        meta:
-          id: req_c74718fd683f4800ac657a0e0405d24d
-          created: 1697328000000
-          modified: 1760670317912
-          isPrivate: false
-          description: Cria um novo projeto
-          sortKey: -1697328000001
-        method: POST
-        body:
-          mimeType: application/json
-          text: >-
-            {
-              "name": "Sistema de Gestão de Projetos - Atualizado",
-              "typeId": 0,
-              "description": "Sistema completo para gerenciar projetos, equipes e recursos - versão 2.0",
-              "statusId": 0,
-              "budget": 0.00,
-              "startDate": "2024-09-01",
-              "endDate": "2024-12-31",
-              "area": "Tecnologia",
-              "skillIds": [
-                1, 2, 3
-              ]
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/projects"
-        name: Listar Projetos Ativos
-        meta:
-          id: req_cbf088afca2546b493fcb2b1a4f035e2
-          created: 1697328000000
-          modified: 1760675557281
-          isPrivate: false
-          description: Lista todos os projetos ativos
-          sortKey: -1697328000000
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-        scripts:
-          preRequest: |
-            const token = insomnia.environment.get("auth_token");
-
-            insomnia.request.addHeader({
-              key: 'Authorization',
-              value: 'Bearer ' + token
-            });
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/projects/status/{statusId}"
-        name: Listar Projetos por ID do Status
-        meta:
-          id: req_b0e038bb06d4427584ab8cd953c154aa
-          created: 1760670389824
-          modified: 1760670411835
-          isPrivate: false
-          description: Lista todos os projetos ativos
-          sortKey: -1697327999950
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/projects/inactive"
-        name: Listar Projetos Inativos
-        meta:
-          id: req_2433de15fb1e40d680fd6048f0598b84
-          created: 1760670430369
-          modified: 1760670442937
-          isPrivate: false
-          description: Lista todos os projetos ativos
-          sortKey: -1697327999975
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Skills
-    meta:
-      id: fld_a4201c2e89414487aef67cc4c4ab733b
-      created: 1697328000000
-      modified: 1760671242120
-      sortKey: -1697328000000
-      description: Endpoints para gerenciamento de skills
-    children:
-      - url: "{{ _.base_url }}/skills"
-        name: Listar Skills
-        meta:
-          id: req_335b01f333374a02b16abeea461661a8
-          created: 1697328000000
-          modified: 1760671369107
-          isPrivate: false
-          description: Lista todas as skills ativas
-          sortKey: -1697328000000
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/skills/disable/1"
-        name: Desabilitar Skill
-        meta:
-          id: req_3c6172a922a3480fad06deaa874ee424
-          created: 1697328000000
-          modified: 1760671265106
-          isPrivate: false
-          description: Desabilita uma skill (soft delete)
-          sortKey: -1697328000005
-        method: PUT
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/skills/type/1"
-        name: Listar Skills por ID do Tipo
-        meta:
-          id: req_4aeef35ea5854afaa226a2ddea2d56ea
-          created: 1697328000000
-          modified: 1760671310034
-          isPrivate: false
-          description: Lista skills por tipo (HARD ou SOFT)
-          sortKey: -1697328000003
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/skills/1"
-        name: Excluir Skill
-        meta:
-          id: req_877adea48dec45698307169f629e7287
-          created: 1697328000000
-          modified: 1760671248487
-          isPrivate: false
-          description: Exclui permanentemente uma skill
-          sortKey: -1697328000007
-        method: DELETE
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/skills/1"
-        name: Atualizar Skill
-        meta:
-          id: req_a71d32ef34d54ba89b0898e7d4b71222
-          created: 1697328000000
-          modified: 1760671325128
-          isPrivate: false
-          description: Atualiza uma skill existente
-          sortKey: -1697328000004
-        method: PATCH
-        body:
-          mimeType: application/json
-          text: >-
-            {
-              "name": "Java Atualizado",
-              "description": "Linguagem de programação Java - versão atualizada",
-              "typeId": 1
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/skills/enable/1"
-        name: Habilitar Skill
-        meta:
-          id: req_b097e551176240629786ab94ff35cd79
-          created: 1697328000000
-          modified: 1760671252374
-          isPrivate: false
-          description: Habilita uma skill previamente desabilitada
-          sortKey: -1697328000006
-        method: PUT
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/skills"
-        name: Criar Skill
-        meta:
-          id: req_d9edf5ffad7a4c7f803d115231bad8fe
-          created: 1697328000000
-          modified: 1760671340695
-          isPrivate: false
-          description: Cria uma nova skill
-          sortKey: -1697328000001
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "name": "Java",
-              "description": "Linguagem de programação Java",
-              "typeId": 1
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/skills/1"
-        name: Buscar Skill por ID
-        meta:
-          id: req_f4902a72a03b4c15b0bad60fd953e9a2
-          created: 1697328000000
-          modified: 1760671321722
-          isPrivate: false
-          description: Busca uma skill específica pelo ID
-          sortKey: -1697328000002
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/skills/inactive"
-        name: Listar Skills Inativas
-        meta:
-          id: req_df04d6a6def54ac19b9aa394a5681052
-          created: 1760671445712
-          modified: 1760671458973
-          isPrivate: false
-          description: Lista todas as skills ativas
-          sortKey: -1697327999987.5
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
   - name: Health & Documentation
     meta:
-      id: fld_f639d13ba74546de9dc0e67e7bf8330d
+      id: fld_3fe991bec5cd4d7f83fa5fa56481215d
       created: 1697328000000
       modified: 1760675780337
       sortKey: -1697328000002
@@ -467,7 +17,7 @@ collection:
       - url: "{{ _.base_url }}/actuator/health"
         name: Health Check
         meta:
-          id: req_2c3028abb41040169af4750cd787a703
+          id: req_0e65b0b5f9124ff197079ace96ba7995
           created: 1697328000000
           modified: 1697328000000
           isPrivate: false
@@ -485,7 +35,7 @@ collection:
       - url: "{{ _.base_url }}/swagger-ui.html"
         name: Swagger UI
         meta:
-          id: req_3e4461a689a743d88e31b4e65c46b469
+          id: req_b472f9a0443a46d5b7596b19ce187a5d
           created: 1697328000000
           modified: 1697328000000
           isPrivate: false
@@ -504,7 +54,7 @@ collection:
           _.firebase_key }}
         name: Authenticate
         meta:
-          id: req_fc1bb2eeae42440cbee2237638e029b1
+          id: req_443697e091b44451a475d3aac5d1e52b
           created: 1760675786879
           modified: 1760675868860
           isPrivate: false
@@ -536,9 +86,595 @@ collection:
             send: true
             store: true
           rebuildPath: true
+  - name: Skills
+    meta:
+      id: fld_dbae0ed03721417093da906e1fee8eb2
+      created: 1697328000000
+      modified: 1760671242120
+      sortKey: -1697328000000
+      description: Endpoints para gerenciamento de skills
+    children:
+      - url: "{{ _.base_url }}/skills"
+        name: Criar Skill
+        meta:
+          id: req_076fbd8f17b6413d92051788a6ca1aef
+          created: 1697328000000
+          modified: 1760736954909
+          isPrivate: false
+          description: Cria uma nova skill
+          sortKey: -1697328000001
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Java",
+              "description": "Linguagem de programação Java",
+              "typeId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/skills"
+        name: Listar Skills
+        meta:
+          id: req_3573b3cf3fa8467ea53539472f0f0d8f
+          created: 1697328000000
+          modified: 1760736958308
+          isPrivate: false
+          description: Lista todas as skills ativas
+          sortKey: -1697328000000
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/skills/type/1"
+        name: Listar Skills por ID do Tipo
+        meta:
+          id: req_3e97072a06054e19b03c18581de880d3
+          created: 1697328000000
+          modified: 1760736949067
+          isPrivate: false
+          description: Lista skills por tipo (HARD ou SOFT)
+          sortKey: -1697328000003
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/skills/disable/1"
+        name: Desabilitar Skill
+        meta:
+          id: req_48428e73c094479fab1e0be069f22649
+          created: 1697328000000
+          modified: 1760736942311
+          isPrivate: false
+          description: Desabilita uma skill (soft delete)
+          sortKey: -1697328000005
+        method: PUT
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/skills/1"
+        name: Atualizar Skill
+        meta:
+          id: req_53f23ab3d86a49d8b25b838b66935d4c
+          created: 1697328000000
+          modified: 1760736946633
+          isPrivate: false
+          description: Atualiza uma skill existente
+          sortKey: -1697328000004
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: >-
+            {
+              "name": "Java Atualizado",
+              "description": "Linguagem de programação Java - versão atualizada",
+              "typeId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/skills/enable/1"
+        name: Habilitar Skill
+        meta:
+          id: req_64e690876e3647b390e0a9ea40891760
+          created: 1697328000000
+          modified: 1760736937983
+          isPrivate: false
+          description: Habilita uma skill previamente desabilitada
+          sortKey: -1697328000006
+        method: PUT
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/skills/1"
+        name: Excluir Skill
+        meta:
+          id: req_c98a97356d6848b59400307c4846a7d6
+          created: 1697328000000
+          modified: 1760736934879
+          isPrivate: false
+          description: Exclui permanentemente uma skill
+          sortKey: -1697328000007
+        method: DELETE
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/skills/1"
+        name: Buscar Skill por ID
+        meta:
+          id: req_d4ed3ba946264ca9a7a2846284316804
+          created: 1697328000000
+          modified: 1760736952145
+          isPrivate: false
+          description: Busca uma skill específica pelo ID
+          sortKey: -1697328000002
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/skills/inactive"
+        name: Listar Skills Inativas
+        meta:
+          id: req_870abc86af364f71a8d593baa76301a7
+          created: 1760671445712
+          modified: 1760736960822
+          isPrivate: false
+          description: Lista todas as skills ativas
+          sortKey: -1697327999987.5
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Projects
+    meta:
+      id: fld_f487c1f296394f33a9703f04f404d224
+      created: 1697328000000
+      modified: 1760736849800
+      sortKey: -1697328000001
+      description: Endpoints para gerenciamento de projetos
+    children:
+      - url: "{{ _.base_url }}/projects/1"
+        name: Atualizar Projeto
+        meta:
+          id: req_02c12bf3dc2149e6bd784496e1e33bf7
+          created: 1697328000000
+          modified: 1760736835400
+          isPrivate: false
+          description: Atualiza um projeto existente
+          sortKey: -1697328000004
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: >-
+            {
+              "name": "Sistema de Gestão de Projetos - Atualizado",
+              "typeId": 0,
+              "description": "Sistema completo para gerenciar projetos, equipes e recursos - versão 2.0",
+              "statusId": 0,
+              "budget": 0.00,
+              "startDate": "2024-09-01",
+              "endDate": "2024-12-31",
+              "area": "Tecnologia",
+              "skillIds": [
+                1, 2, 3
+              ]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/projects"
+        name: Criar Projeto
+        meta:
+          id: req_22a42e6776e04b0d978f57e24bd01417
+          created: 1697328000000
+          modified: 1760736855227
+          isPrivate: false
+          description: Cria um novo projeto
+          sortKey: -1697328000001
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+              "name": "Sistema de Gestão de Projetos - Atualizado",
+              "typeId": 0,
+              "description": "Sistema completo para gerenciar projetos, equipes e recursos - versão 2.0",
+              "statusId": 0,
+              "budget": 0.00,
+              "startDate": "2024-09-01",
+              "endDate": "2024-12-31",
+              "area": "Tecnologia",
+              "skillIds": [
+                1, 2, 3
+              ]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/projects/2"
+        name: Buscar Projeto por ID
+        meta:
+          id: req_27e53e2ddc7c48b68fe89c7b750708d2
+          created: 1697328000000
+          modified: 1760736847804
+          isPrivate: false
+          description: Busca um projeto específico pelo ID
+          sortKey: -1697328000002
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/projects/1"
+        name: Excluir Projeto
+        meta:
+          id: req_4fbd176f493f45888cc6695705f537af
+          created: 1697328000000
+          modified: 1760736821318
+          isPrivate: false
+          description: Exclui permanentemente um projeto
+          sortKey: -1697328000007
+        method: DELETE
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/projects/disable/1"
+        name: Desabilitar Projeto
+        meta:
+          id: req_64d15ff9c9fb4a95853243ec3711da4c
+          created: 1697328000000
+          modified: 1760736831613
+          isPrivate: false
+          description: Desabilita um projeto (soft delete)
+          sortKey: -1697328000005
+        method: PUT
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/projects"
+        name: Listar Projetos Ativos
+        meta:
+          id: req_70beada2e3e34ab38dbda43d2dec2fe4
+          created: 1697328000000
+          modified: 1760675557281
+          isPrivate: false
+          description: Lista todos os projetos ativos
+          sortKey: -1697328000000
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/projects/enable/1"
+        name: Habilitar Projeto
+        meta:
+          id: req_fa006798454946349e6e5d61fe97bd9e
+          created: 1697328000000
+          modified: 1760736828304
+          isPrivate: false
+          description: Habilita um projeto previamente desabilitado
+          sortKey: -1697328000006
+        method: PUT
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/projects/status/{statusId}"
+        name: Listar Projetos por ID do Status
+        meta:
+          id: req_4c970f9b775140cb8fd49820299a3909
+          created: 1760670389824
+          modified: 1760736863763
+          isPrivate: false
+          description: Lista todos os projetos ativos
+          sortKey: -1697327999950
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/projects/inactive"
+        name: Listar Projetos Inativos
+        meta:
+          id: req_9f544f6df9824c01a4093ddfa0a9a00f
+          created: 1760670430369
+          modified: 1760736860775
+          isPrivate: false
+          description: Lista todos os projetos ativos
+          sortKey: -1697327999975
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
   - name: Project Type
     meta:
-      id: fld_cd8d0c1e6177407aa7f82e52d7886893
+      id: fld_58bd316f0dcc40c989a81c70d4ac1837
       created: 1760670481652
       modified: 1760671110525
       sortKey: -1697328000000.5
@@ -547,9 +683,9 @@ collection:
       - url: "{{ _.base_url }}/project-types/disable/1"
         name: Desabilitar Tipo de Projeto
         meta:
-          id: req_c32f0a861754433695de164f8808add1
+          id: req_7dc01aaff21f4ce999852aceb30fb63c
           created: 1760670481654
-          modified: 1760670727561
+          modified: 1760736884019
           isPrivate: false
           description: Desabilita um projeto (soft delete)
           sortKey: -1697328000005
@@ -557,6 +693,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -568,9 +712,9 @@ collection:
       - url: "{{ _.base_url }}/project-types/1"
         name: Atualizar Tipo de Projeto
         meta:
-          id: req_fc28019d1684441e9a2ced3dcdc11363
+          id: req_6d2a6af46c504a01ba2cb446daaca88d
           created: 1760670481655
-          modified: 1760670813919
+          modified: 1760736887667
           isPrivate: false
           description: Atualiza um projeto existente
           sortKey: -1697328000004
@@ -585,6 +729,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -596,9 +748,9 @@ collection:
       - url: "{{ _.base_url }}/project-types/enable/1"
         name: Habilitar Tipo de Projeto
         meta:
-          id: req_7bb9d92ae2ad44e5b8d70c5ca0c1a253
+          id: req_f9100d03322f423293a653d6ca90ac0b
           created: 1760670481657
-          modified: 1760670720768
+          modified: 1760736880806
           isPrivate: false
           description: Habilita um projeto previamente desabilitado
           sortKey: -1697328000006
@@ -606,27 +758,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/project-types/1"
-        name: Excluir Tipo de Projeto
-        meta:
-          id: req_ebe4da536d0d434a93023f99d03940d9
-          created: 1760670481658
-          modified: 1760670712973
-          isPrivate: false
-          description: Exclui permanentemente um projeto
-          sortKey: -1697328000007
-        method: DELETE
-        headers:
-          - name: Content-Type
-            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -638,9 +777,9 @@ collection:
       - url: "{{ _.base_url }}/project-types/1"
         name: Buscar Tipo de Projeto por ID
         meta:
-          id: req_fc5e3223e79a4cb1b4fbcbe0dfa6445a
+          id: req_0db6c2d0375349d399510d8a3867f033
           created: 1760670481658
-          modified: 1760671131174
+          modified: 1760736891388
           isPrivate: false
           description: Busca um projeto específico pelo ID
           sortKey: -1697328000002
@@ -648,6 +787,43 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/project-types/1"
+        name: Excluir Tipo de Projeto
+        meta:
+          id: req_8e07a436ca43411db993312e31ca8331
+          created: 1760670481658
+          modified: 1760736876307
+          isPrivate: false
+          description: Exclui permanentemente um projeto
+          sortKey: -1697328000007
+        method: DELETE
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -659,9 +835,9 @@ collection:
       - url: "{{ _.base_url }}/project-types"
         name: Criar Tipo de Projeto
         meta:
-          id: req_656c53c438f044c6afea66b6ec2e7569
+          id: req_812b0dde8d974556a744e74ab5acb1be
           created: 1760670481659
-          modified: 1760670858717
+          modified: 1760736894246
           isPrivate: false
           description: Cria um novo projeto
           sortKey: -1697328000001
@@ -676,6 +852,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -687,9 +871,9 @@ collection:
       - url: "{{ _.base_url }}/project-types"
         name: Listar Tipos de Projetos Ativos
         meta:
-          id: req_e05fc573b4cb44daa68b0204088be6f1
+          id: req_3de82e9ff4b548c5aa54400dfb650b39
           created: 1760670481661
-          modified: 1760670876582
+          modified: 1760736896851
           isPrivate: false
           description: Lista todos os projetos ativos
           sortKey: -1697328000000
@@ -697,6 +881,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -708,9 +900,9 @@ collection:
       - url: "{{ _.base_url }}/project-types/inactive"
         name: Listar Tipos de Projetos Inativos
         meta:
-          id: req_43d19b4aaaef49488ee395c0ae9586f9
+          id: req_6215464c0ec44a428213ffa7b8bee2a4
           created: 1760670481663
-          modified: 1760670881859
+          modified: 1760736899762
           isPrivate: false
           description: Lista todos os projetos ativos
           sortKey: -1697327999975
@@ -718,6 +910,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -728,7 +928,7 @@ collection:
           rebuildPath: true
   - name: Project Status
     meta:
-      id: fld_3ee05b2375e74bad9480d43701b0b678
+      id: fld_1eaa429846df4867a8c2ced364b4f3d0
       created: 1760670970825
       modified: 1760671127034
       sortKey: -1697328000000.25
@@ -737,9 +937,9 @@ collection:
       - url: "{{ _.base_url }}/project-status/disable/1"
         name: Desabilitar Status de Projeto
         meta:
-          id: req_7b099f9253324126a57ad0c7431fcb17
+          id: req_eca050ffad4449629527307154848ff6
           created: 1760670970826
-          modified: 1760671120756
+          modified: 1760736913258
           isPrivate: false
           description: Desabilita um projeto (soft delete)
           sortKey: -1697328000005
@@ -747,6 +947,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -758,9 +966,9 @@ collection:
       - url: "{{ _.base_url }}/project-status/1"
         name: Atualizar Status de Projeto
         meta:
-          id: req_3d68ab17230f485689101ff873d2fc3d
+          id: req_591e2d35e1fd4f809287f13037ed2d18
           created: 1760670970828
-          modified: 1760671118230
+          modified: 1760736915983
           isPrivate: false
           description: Atualiza um projeto existente
           sortKey: -1697328000004
@@ -775,6 +983,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -786,9 +1002,9 @@ collection:
       - url: "{{ _.base_url }}/project-status/enable/1"
         name: Habilitar Status de Projeto
         meta:
-          id: req_65c3d35f3a7b4471a56758db0a734843
+          id: req_3e0897e25ae741668c6bc47835467af2
           created: 1760670970829
-          modified: 1760671121554
+          modified: 1760736910590
           isPrivate: false
           description: Habilita um projeto previamente desabilitado
           sortKey: -1697328000006
@@ -796,6 +1012,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -807,9 +1031,9 @@ collection:
       - url: "{{ _.base_url }}/project-status/1"
         name: Excluir Status de Projeto
         meta:
-          id: req_c64e7caef026450bbdd54b79e55a95b6
+          id: req_c3a410860c24407185ed8027214a51da
           created: 1760670970830
-          modified: 1760671122880
+          modified: 1760736907265
           isPrivate: false
           description: Exclui permanentemente um projeto
           sortKey: -1697328000007
@@ -817,6 +1041,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -828,9 +1060,9 @@ collection:
       - url: "{{ _.base_url }}/project-status/1"
         name: Buscar Status de Projeto por ID
         meta:
-          id: req_d5943e857f9a4dc69436940d89b8aa41
+          id: req_3b085eca48664eaeaddc007ebd92bcc9
           created: 1760670970831
-          modified: 1760671125682
+          modified: 1760736918906
           isPrivate: false
           description: Busca um projeto específico pelo ID
           sortKey: -1697328000002
@@ -838,6 +1070,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -849,9 +1089,9 @@ collection:
       - url: "{{ _.base_url }}/project-status"
         name: Criar Status de Projeto
         meta:
-          id: req_764771c75f0c40e6b6d48e9db395abe1
+          id: req_12c2fbe4bf2a49058a33b6b382adf66d
           created: 1760670970833
-          modified: 1760671176510
+          modified: 1760736921985
           isPrivate: false
           description: Cria um novo projeto
           sortKey: -1697328000001
@@ -866,6 +1106,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -877,9 +1125,9 @@ collection:
       - url: "{{ _.base_url }}/project-status"
         name: Listar Status de Projetos Ativos
         meta:
-          id: req_afaa38a7142d47e48ef2d40c82ce0426
+          id: req_b98c8f3bf6494f0097ea5b29dcf70bab
           created: 1760670970834
-          modified: 1760671158726
+          modified: 1760736925017
           isPrivate: false
           description: Lista todos os projetos ativos
           sortKey: -1697328000000
@@ -887,6 +1135,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -898,9 +1154,9 @@ collection:
       - url: "{{ _.base_url }}/project-status/inactive"
         name: Listar Status de Projetos Inativos
         meta:
-          id: req_dd716efca91a4f5ebc8bee5c6181d430
+          id: req_b30624401d37427eb7b71c3cb5f8cf23
           created: 1760670970835
-          modified: 1760671166211
+          modified: 1760736928054
           isPrivate: false
           description: Lista todos os projetos ativos
           sortKey: -1697327999975
@@ -908,6 +1164,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -918,18 +1182,18 @@ collection:
           rebuildPath: true
   - name: Skills Type
     meta:
-      id: fld_5f93196186bf42f19ba10305b53b7b70
+      id: fld_dcff601f316d440f804695b0f8c3f3a4
       created: 1760671479650
-      modified: 1760671479650
+      modified: 1760737003383
       sortKey: -1697327999950
       description: Endpoints para gerenciamento de skills
     children:
       - url: "{{ _.base_url }}/skill-types"
         name: Listar Tipo de Skills
         meta:
-          id: req_e92ea73cf5854b839377f84d20ecd335
+          id: req_18625f4be3b84a43a53b79302806e351
           created: 1760671479651
-          modified: 1760671740491
+          modified: 1760736988899
           isPrivate: false
           description: Lista todas as skills ativas
           sortKey: -1697328000000
@@ -937,6 +1201,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -948,9 +1220,9 @@ collection:
       - url: "{{ _.base_url }}/skill-types/disable/1"
         name: Desabilitar Tipo de Skill
         meta:
-          id: req_1958cc9af5234e6a80c7f4e6c3f93a9e
+          id: req_75466bb85e344cbd8c4aad4a84956e1c
           created: 1760671479653
-          modified: 1760671522155
+          modified: 1760736974993
           isPrivate: false
           description: Desabilita uma skill (soft delete)
           sortKey: -1697328000005
@@ -958,6 +1230,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -969,9 +1249,9 @@ collection:
       - url: "{{ _.base_url }}/skill-types/1"
         name: Excluir Tipo de Skill
         meta:
-          id: req_1a5743cd9af04fed821e974732542741
+          id: req_10a50c1b158e4289bebc28112a161946
           created: 1760671479655
-          modified: 1760671514008
+          modified: 1760736968579
           isPrivate: false
           description: Exclui permanentemente uma skill
           sortKey: -1697328000007
@@ -979,6 +1259,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -990,9 +1278,9 @@ collection:
       - url: "{{ _.base_url }}/skill-types/1"
         name: Atualizar Tipo de Skill
         meta:
-          id: req_c436fe49895e4fd3aa1efe6cb8a7f4ad
+          id: req_acdf667aa15e43ceb0742baac144124e
           created: 1760671479656
-          modified: 1760671579211
+          modified: 1760736977580
           isPrivate: false
           description: Atualiza uma skill existente
           sortKey: -1697328000004
@@ -1007,6 +1295,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1018,9 +1314,9 @@ collection:
       - url: "{{ _.base_url }}/skill-types/enable/1"
         name: Habilitar Tipo de Skill
         meta:
-          id: req_3c4cea03084f42918273794c794a1816
+          id: req_f2057093478845429c19fea1d774ebfd
           created: 1760671479657
-          modified: 1760671517894
+          modified: 1760736971586
           isPrivate: false
           description: Habilita uma skill previamente desabilitada
           sortKey: -1697328000006
@@ -1028,6 +1324,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1039,9 +1343,9 @@ collection:
       - url: "{{ _.base_url }}/skill-types"
         name: Criar Tipo de Skill
         meta:
-          id: req_0d7c76ca4f2247fa89eb9053be925789
+          id: req_ccf8008c385f4dfaaed4d6c858d996d7
           created: 1760671479658
-          modified: 1760671718730
+          modified: 1760736984463
           isPrivate: false
           description: Cria uma nova skill
           sortKey: -1697328000001
@@ -1056,6 +1360,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1067,9 +1379,9 @@ collection:
       - url: "{{ _.base_url }}/skill-types/1"
         name: Buscar Tipo de Skill por ID
         meta:
-          id: req_98d0033bc9314d429f652418739c3e83
+          id: req_2043db1b2e62428eabad5aa71339ab36
           created: 1760671479659
-          modified: 1760671714261
+          modified: 1760736980947
           isPrivate: false
           description: Busca uma skill específica pelo ID
           sortKey: -1697328000002
@@ -1077,6 +1389,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1088,9 +1408,9 @@ collection:
       - url: "{{ _.base_url }}/skill-types/inactive"
         name: Listar Tipo de Skills Inativas
         meta:
-          id: req_99535bd96f9740f6b41a8add7f473250
+          id: req_15e49d9e099441f79b5b2122fc130ed5
           created: 1760671479660
-          modified: 1760671735039
+          modified: 1760736993340
           isPrivate: false
           description: Lista todas as skills ativas
           sortKey: -1697327999987.5
@@ -1098,6 +1418,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: |
+            const token = insomnia.environment.get("auth_token");
+
+            insomnia.request.addHeader({
+              key: 'Authorization',
+              value: 'Bearer ' + token
+            });
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1109,28 +1437,28 @@ collection:
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_3f1b985deec7cc6fd5fbf43ab6d1b49a606fc2d0
+    id: jar_39f9b2ea09af461eb04a2e22ce36dfbc
     created: 1760656161659
-    modified: 1760675882546
+    modified: 1760737003376
   cookies:
-    - id: a4f98167-0999-4c08-825b-70513cd64b52
+    - id: 4d562bdc-cd4b-4d9b-8b2b-61d6ac27034f
       key: JSESSIONID
-      value: CC790A8095C3EB1C540BF1D1AF14F8D5
+      value: BE93E5CC6DB7722BD7222F0BAE537360
       domain: localhost
       path: /api
       secure: false
       httpOnly: true
       creation: 2025-10-17T04:31:00.456Z
       hostOnly: true
-      lastAccessed: 2025-10-17T04:31:00.456Z
+      lastAccessed: 2025-10-17T21:32:53.502Z
 environments:
   name: Base Environment
   meta:
-    id: env_a182c97be6b348c4ab2c912c2ba1da64
+    id: env_3227ca28f69246b99ffb2636deceafd7
     created: 1697328000000
-    modified: 1760675882551
+    modified: 1760737003380
     isPrivate: false
   data:
     base_url: http://localhost:8082/api
-    auth_token: eyJhbGciOiJSUzI1NiIsImtpZCI6ImE1YTAwNWU5N2NiMWU0MjczMDBlNTJjZGQ1MGYwYjM2Y2Q4MDYyOWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcG9wcy1zcnYtZW1wbG95ZWUiLCJhdWQiOiJwb3BzLXNydi1lbXBsb3llZSIsImF1dGhfdGltZSI6MTc2MDY2MzAxNCwidXNlcl9pZCI6ImZ1bmNpb25hcmlvXzE0MjMiLCJzdWIiOiJmdW5jaW9uYXJpb18xNDIzIiwiaWF0IjoxNzYwNjYzMDE0LCJleHAiOjE3NjA2NjY2MTQsImVtYWlsIjoiYWxpbmUuYWxtZWlkYUBlbXByZXNhLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhbGluZS5hbG1laWRhQGVtcHJlc2EuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.CTaid-IScRPFb_5SIa0lg9A3Rhlx9RdxFusSSJwRrhw7gQWKeXYDkWkhiL1wd9IN-ZFFqBCXnzRPx-3i3LxdsJr2ac8QKrBLv0B0dF7eUircGOvy660sWTu5rEVKIsnGdot7qsF87KhI3ErvsFcf7i9htx6_r_1cwqevoNHjqJGif59GAn3_DVovyXgNpTMkhcOjYHCtvS7axa16mdlEYHWfiqd5QJ1yEDAnrayegcQWvYDQsIX3Kahx_18ZjKAOSGsG1sdMnEIIY_iaEBn5YMdVhqmouY-vFGCHYGKJDnz_hxgm1BOAgBg36QeB4wxkvm6hngDqozI4uhXhLf-85A
+    auth_token: eyJhbGciOiJSUzI1NiIsImtpZCI6ImE1YTAwNWU5N2NiMWU0MjczMDBlNTJjZGQ1MGYwYjM2Y2Q4MDYyOWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcG9wcy1zcnYtZW1wbG95ZWUiLCJhdWQiOiJwb3BzLXNydi1lbXBsb3llZSIsImF1dGhfdGltZSI6MTc2MDczNjc1NCwidXNlcl9pZCI6ImZ1bmNpb25hcmlvXzE0MjMiLCJzdWIiOiJmdW5jaW9uYXJpb18xNDIzIiwiaWF0IjoxNzYwNzM2NzU0LCJleHAiOjE3NjA3NDAzNTQsImVtYWlsIjoiYWxpbmUuYWxtZWlkYUBlbXByZXNhLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhbGluZS5hbG1laWRhQGVtcHJlc2EuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.Smkk1zWb3S3U6JTCVTYZm5fYqb61oHiLxSF5CN2wWrfdzunj4IoZvA4xHr-x60tQF93yrzfYoIu9WKNhTKKxAYRDIPiaq-S2savTfSiIQo68oicSCFQXA5-rP5ebltD-tzNCh6j_zUvEG6OaUN5TIzos9OHnzakl1M4t5UmGxIv-gOpkQng8X3sJV8r5TMkEVOpsJUKvmMD_gt53suLf7utoIZlNfI23iUxGaMs_aKQTpkokZnrFEof-orXyy6LWD2OaSK5_6C4QAyzCAFwwAeWBYaeO5WuCTPXWV9LJsHYWOoe97T-dGcNPiDBhZ2egvfMkw7aLFZyu6uldZbfszg
     firebase_key: AIzaSyD_bBtonx1kEtBCWCCbKM09k2fOK3jgJUs
