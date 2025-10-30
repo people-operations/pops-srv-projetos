@@ -1,6 +1,8 @@
 spring:
   application:
     name: pops-srv-projects
+  config:
+    import: optional:file:./config/values.yml
 
   datasource:
     url: ${DB_URL}
