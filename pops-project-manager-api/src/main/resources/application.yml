@@ -2,16 +2,46 @@ spring:
   application:
     name: pops-srv-projects
 
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 20
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+    defer-datasource-initialization: false
+
+  sql:
+    init:
+      mode: never
+
 server:
+  port: 8082
   servlet:
     context-path: /api-project
-  port: 8082
 
-odoo:
-  url: https://grupo-pops1.odoo.com/jsonrpc
-  db: grupo-pops1
-  uid: 2
-  password: agustd10
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
 
 firebase:
-  service-account-path: C:/keys/pops-srv-employee-firebase-adminsdk-fbsvc-e86c8fbf1b.json
+  service-account-path: ${FIREBASE_KEY_PATH}
