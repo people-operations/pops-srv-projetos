@@ -9,6 +9,12 @@ import pops.domain.repository.ProjectTypeRepository
 import pops.domain.repository.ProjectStatusRepository
 import pops.infraestructure.utilities.CrudService
 import pops.application.dto.ProjectUpdateRequest
+import pops.application.dto.ProjectResponse
+import pops.application.dto.ProjectTypeResponse
+import pops.application.dto.ProjectStatusResponse
+import pops.application.dto.SkillResponse
+import pops.application.dto.SkillTypeResponse
+import pops.infraestructure.client.SquadApiClient
 import java.math.BigDecimal
 import java.time.LocalDate
 
@@ -17,7 +23,8 @@ class ProjectService(
     private val projectRepository: ProjectRepository,
     private val skillRepository: SkillRepository,
     private val projectTypeRepository: ProjectTypeRepository,
-    private val projectStatusRepository: ProjectStatusRepository
+    private val projectStatusRepository: ProjectStatusRepository,
+    private val squadApiClient: SquadApiClient
 ) {
     
     private val crudService = CrudService(projectRepository)
@@ -76,7 +83,83 @@ class ProjectService(
     
     fun findById(id: Long): Project = crudService.findById(id)
     
+    fun findByIdWithSquads(id: Long, authToken: String? = null): ProjectResponse {
+        val project = crudService.findById(id)
+        return toProjectResponse(project, authToken)
+    }
+    
     fun findAll(): List<Project> = crudService.findAll()
+    
+    fun findAllWithSquads(authToken: String? = null): List<ProjectResponse> {
+        val projects = crudService.findAll()
+        return projects.map { toProjectResponse(it, authToken) }
+    }
+    
+    fun findActiveProjectsWithSquads(authToken: String? = null): List<ProjectResponse> {
+        val projects = findActiveProjects()
+        return projects.map { toProjectResponse(it, authToken) }
+    }
+    
+    fun findInactiveProjectsWithSquads(authToken: String? = null): List<ProjectResponse> {
+        val projects = findInactiveProjects()
+        return projects.map { toProjectResponse(it, authToken) }
+    }
+    
+    fun findActiveProjectsByStatusWithSquads(statusId: Long, authToken: String? = null): List<ProjectResponse> {
+        val projects = findActiveProjectsByStatus(statusId)
+        return projects.map { toProjectResponse(it, authToken) }
+    }
+    
+    fun findAllPageableWithSquads(pageable: org.springframework.data.domain.Pageable, authToken: String? = null): org.springframework.data.domain.Page<ProjectResponse> {
+        val projectsPage = crudService.findAllPageable(pageable)
+        return projectsPage.map { toProjectResponse(it, authToken) }
+    }
+    
+    private fun toProjectResponse(project: Project, authToken: String? = null): ProjectResponse {
+        val squads = project.id?.let { 
+            squadApiClient.findTeamsByProjectId(it, authToken) 
+        } ?: emptyList()
+        
+        return ProjectResponse(
+            id = project.id,
+            name = project.name,
+            type = project.type?.let {
+                ProjectTypeResponse(
+                    id = it.id,
+                    name = it.name,
+                    description = it.description,
+                    active = it.active
+                )
+            },
+            description = project.description,
+            status = ProjectStatusResponse(
+                id = project.status.id,
+                name = project.status.name,
+                description = project.status.description,
+                active = project.status.active
+            ),
+            budget = project.budget,
+            startDate = project.startDate,
+            endDate = project.endDate,
+            area = project.area,
+            active = project.active,
+            requiredSkills = project.requiredSkills.map { skill ->
+                SkillResponse(
+                    id = skill.id,
+                    name = skill.name,
+                    description = skill.description,
+                    type = SkillTypeResponse(
+                        id = skill.type.id,
+                        name = skill.type.name,
+                        description = skill.type.description,
+                        active = skill.type.active
+                    ),
+                    active = skill.active
+                )
+            },
+            squads = squads
+        )
+    }
     
     fun findAllPageable(pageable: org.springframework.data.domain.Pageable): org.springframework.data.domain.Page<Project> = crudService.findAllPageable(pageable)
     

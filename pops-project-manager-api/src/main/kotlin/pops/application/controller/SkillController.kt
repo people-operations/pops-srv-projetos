@@ -13,7 +13,7 @@ import pops.application.dto.SkillResponse
 import pops.application.dto.SkillTypeResponse
 
 @RestController
-@RequestMapping("/skills")
+@RequestMapping(value = ["/api/skills", "/skills"])
 class SkillController(
     private val service: SkillService
 ) {

@@ -1,0 +1,16 @@
+# Configurações de ambiente para POPS Project Manager API
+# Este arquivo contém as variáveis de ambiente usadas no application.yml
+# Ajuste os valores conforme seu ambiente local
+
+# Configurações do Banco de Dados MySQL
+DB_URL: jdbc:mysql://localhost:3306/popsdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+DB_USERNAME: root
+DB_PASSWORD: gyulia06*
+
+# Configuração do Firebase
+# Ajuste o caminho para o arquivo de chave do Firebase no seu ambiente
+FIREBASE_KEY_PATH: ./config/firebase-key.json
+
+# URL do serviço de Squad (com valor padrão caso não seja definido)
+POPS_SRV_SQUAD_URL: http://localhost:8083/api-squad
+

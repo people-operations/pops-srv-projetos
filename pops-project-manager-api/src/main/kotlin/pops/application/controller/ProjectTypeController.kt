@@ -10,7 +10,7 @@ import pops.application.dto.ProjectTypeUpdateRequest
 import pops.application.dto.ProjectTypeResponse
 
 @RestController
-@RequestMapping("/project-types")
+@RequestMapping(value = ["/api/project-types", "/project-types"])
 class ProjectTypeController(
     private val service: ProjectTypeService
 ) {

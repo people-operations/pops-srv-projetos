@@ -16,7 +16,7 @@ import pops.application.dto.ProjectStatusResponse
 import pops.infraestructure.utilities.CrudService
 
 @RestController
-@RequestMapping("/projects")
+@RequestMapping(value = ["/api/projects", "/projects"])
 class ProjectController(
     private val service: ProjectService,
 ) {
@@ -24,42 +24,53 @@ class ProjectController(
     private val logger = LoggerFactory.getLogger(ProjectController::class.java)
 
     @GetMapping
-    fun listActiveProjects(): ResponseEntity<Any> {
-        val projects = service.findActiveProjects()
+    fun listActiveProjects(
+        @RequestHeader(value = "Authorization", required = false) authHeader: String?
+    ): ResponseEntity<Any> {
+        val projects = service.findActiveProjectsWithSquads(authHeader)
         return if (projects.isEmpty()) ResponseEntity.noContent().build()
         else ResponseEntity.ok(projects)
     }
 
     @GetMapping("/inactive")
-    fun listInactiveProjects(): ResponseEntity<Any> {
-        val projects = service.findInactiveProjects()
+    fun listInactiveProjects(
+        @RequestHeader(value = "Authorization", required = false) authHeader: String?
+    ): ResponseEntity<Any> {
+        val projects = service.findInactiveProjectsWithSquads(authHeader)
         return if (projects.isEmpty()) ResponseEntity.noContent().build()
         else ResponseEntity.ok(projects)
     }
 
     @GetMapping("/pageable")
-    fun listProjectsPagination(@PageableDefault(size = 10) pageable: Pageable): ResponseEntity<Any> {
-        val projects = service.findAllPageable(pageable)
+    fun listProjectsPagination(
+        @PageableDefault(size = 10) pageable: Pageable,
+        @RequestHeader(value = "Authorization", required = false) authHeader: String?
+    ): ResponseEntity<Any> {
+        val projects = service.findAllPageableWithSquads(pageable, authHeader)
         return if (projects.isEmpty) ResponseEntity.noContent().build()
         else ResponseEntity.ok(projects.content)
     }
 
     @GetMapping("/status/{statusId}")
-    fun listProjectsByStatus(@PathVariable statusId: Long): ResponseEntity<Any> {
-        val projects = service.findActiveProjectsByStatus(statusId)
+    fun listProjectsByStatus(
+        @PathVariable statusId: Long,
+        @RequestHeader(value = "Authorization", required = false) authHeader: String?
+    ): ResponseEntity<Any> {
+        val projects = service.findActiveProjectsByStatusWithSquads(statusId, authHeader)
         return if (projects.isEmpty()) ResponseEntity.noContent().build()
         else ResponseEntity.ok(projects)
     }
 
     @GetMapping("/{id}")
-    fun getProjectById(@PathVariable id: Long): ResponseEntity<Any> {
+    fun getProjectById(
+        @PathVariable id: Long,
+        @RequestHeader(value = "Authorization", required = false) authHeader: String?
+    ): ResponseEntity<Any> {
         logger.info("Buscando projeto com ID: $id")
         try {
-            val project = service.findById(id)
-            logger.info("Projeto encontrado: ${project.name}")
-            
-            // Retornar o projeto diretamente primeiro para testar
-            return ResponseEntity.ok(project)
+            val projectResponse = service.findByIdWithSquads(id, authHeader)
+            logger.info("Projeto encontrado: ${projectResponse.name}")
+            return ResponseEntity.ok(projectResponse)
         } catch (e: Exception) {
             logger.error("Erro ao buscar projeto $id: ${e.message}", e)
             throw e

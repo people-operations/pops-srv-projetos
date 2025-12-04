@@ -25,12 +25,12 @@ http://localhost:8081/api/swagger-ui.html
 ### **Configuração Atual:**
 - **Host:** localhost
 - **Porta:** 3306
-- **Database:** pops_project_manager
+- **Database:** popsdb
 - **Usuário:** root
 - **Senha:** gyulia06*
 
 ### **Script SQL:**
-Execute o arquivo `database/setup-new.sql` no MySQL antes de rodar a aplicação.
+Execute o script SQL fornecido para criar o banco `popsdb` antes de rodar a aplicação.
 
 ## ⚠️ **Solução de Problemas**
 

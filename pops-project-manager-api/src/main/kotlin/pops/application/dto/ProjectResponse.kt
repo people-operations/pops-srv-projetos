@@ -14,7 +14,8 @@ data class ProjectResponse(
     val endDate: LocalDate?,
     val area: String?,
     val active: Boolean,
-    val requiredSkills: List<SkillResponse>
+    val requiredSkills: List<SkillResponse>,
+    val squads: List<SquadDTO> = emptyList()
 )
 
 

@@ -10,7 +10,7 @@ import pops.application.dto.SkillTypeUpdateRequest
 import pops.application.dto.SkillTypeResponse
 
 @RestController
-@RequestMapping("/skill-types")
+@RequestMapping(value = ["/api/skill-types", "/skill-types"])
 class SkillTypeController(
     private val service: SkillTypeService
 ) {

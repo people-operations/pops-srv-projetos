@@ -10,7 +10,7 @@ import pops.application.dto.ProjectStatusUpdateRequest
 import pops.application.dto.ProjectStatusResponse
 
 @RestController
-@RequestMapping("/project-status")
+@RequestMapping(value = ["/api/project-status", "/project-status"])
 class ProjectStatusController(
     private val service: ProjectStatusService
 ) {

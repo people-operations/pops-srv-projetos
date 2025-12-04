@@ -96,11 +96,11 @@ INSERT INTO project_type (name, description) VALUES
 
 -- Inserir dados de exemplo para status de projeto
 INSERT INTO project_status (name, description) VALUES
-('PLANNING', 'Projeto em fase de planejamento'),
-('IN_PROGRESS', 'Projeto em andamento'),
-('ON_HOLD', 'Projeto pausado temporariamente'),
-('COMPLETED', 'Projeto concluído com sucesso'),
-('CANCELLED', 'Projeto cancelado');
+('EM PLANEJAMENTO', 'Projeto em fase de planejamento'),
+('EM PROGRESSO', 'Projeto em andamento'),
+('EM ESPERA', 'Projeto pausado temporariamente'),
+('CONCLUÍDO', 'Projeto concluído com sucesso'),
+('CANCELADO', 'Projeto cancelado');
 
 -- Inserir dados de exemplo para skills
 INSERT INTO skill (name, description, skill_type_id) VALUES

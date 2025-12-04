@@ -6,6 +6,7 @@ import com.google.firebase.FirebaseOptions
 import jakarta.annotation.PostConstruct
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Configuration
+import java.io.File
 import java.io.FileInputStream
 
 @Configuration
@@ -16,15 +17,28 @@ class FirebaseConfig(
 
     @PostConstruct
     fun initFirebase() {
-        val serviceAccount = FileInputStream(firebaseKeyPath)
+        val firebaseKeyFile = File(firebaseKeyPath)
+        
+        if (!firebaseKeyFile.exists()) {
+            println("⚠️ Arquivo Firebase não encontrado em: $firebaseKeyPath")
+            println("⚠️ Firebase não será inicializado. A aplicação continuará sem autenticação Firebase.")
+            return
+        }
 
-        val options = FirebaseOptions.builder()
-            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-            .build()
+        try {
+            val serviceAccount = FileInputStream(firebaseKeyFile)
 
-        if (FirebaseApp.getApps().isEmpty()) {
-            FirebaseApp.initializeApp(options)
-            println("✅ Firebase inicializado com sucesso")
+            val options = FirebaseOptions.builder()
+                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                .build()
+
+            if (FirebaseApp.getApps().isEmpty()) {
+                FirebaseApp.initializeApp(options)
+                println("✅ Firebase inicializado com sucesso")
+            }
+        } catch (e: Exception) {
+            println("⚠️ Erro ao inicializar Firebase: ${e.message}")
+            println("⚠️ A aplicação continuará sem autenticação Firebase.")
         }
     }
 }
