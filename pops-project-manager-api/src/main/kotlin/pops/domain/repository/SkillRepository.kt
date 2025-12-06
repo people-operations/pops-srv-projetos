@@ -17,6 +17,9 @@ interface SkillRepository : JpaRepository<Skill, Long> {
     fun findByActiveTrueAndSkillTypeId(typeId: Long): List<Skill>
     
     fun findByType_Id(typeId: Long): List<Skill>
+    
+    @Query("SELECT s FROM skill s WHERE LOWER(s.name) = LOWER(:name) AND s.active = true")
+    fun findByNameIgnoreCaseAndActiveTrue(name: String): Skill?
 }
 
 

@@ -13,7 +13,14 @@ data class SquadMemberDTO(
     val id: Long,
     val name: String,
     val position: String,
-    val allocatedHours: Int
+    val allocatedHours: Int,
+    val skills: List<MemberSkillDTO> = emptyList()
+)
+
+data class MemberSkillDTO(
+    val id: Int,
+    val name: String,
+    val skillType: String? = null
 )
 
 

@@ -10,6 +10,7 @@ import pops.domain.service.ProjectService
 import pops.application.dto.ProjectCreateRequest
 import pops.application.dto.ProjectUpdateRequest
 import pops.application.dto.ProjectResponse
+import pops.application.dto.ProjectTeamDetailDTO
 import pops.application.dto.SkillResponse
 import pops.application.dto.ProjectTypeResponse
 import pops.application.dto.ProjectStatusResponse
@@ -127,6 +128,97 @@ class ProjectController(
         } catch (e: Exception) {
             logger.error("Erro interno ao deletar projeto $id: ${e.message}")
             return ResponseEntity.internalServerError().body(mapOf("error" to "Erro interno do servidor"))
+        }
+    }
+
+    /**
+     * Sincroniza as skills do projeto com as skills dos colaboradores alocados nas squads
+     * Busca todas as skills dos colaboradores e atualiza a tabela project_skills
+     */
+    @PostMapping("/{id}/sync-skills")
+    fun syncProjectSkills(
+        @PathVariable id: Long,
+        @RequestParam(required = false, defaultValue = "false") replaceExisting: Boolean,
+        @RequestHeader(value = "Authorization", required = false) authHeader: String?
+    ): ResponseEntity<Any> {
+        try {
+            logger.info("Sincronizando skills do projeto $id (replaceExisting: $replaceExisting)")
+            val updatedProject = service.syncProjectSkillsFromSquads(id, authHeader, replaceExisting)
+            logger.info("Skills do projeto $id sincronizadas com sucesso. Total de skills: ${updatedProject.requiredSkills.size}")
+            return ResponseEntity.ok(mapOf(
+                "message" to "Skills sincronizadas com sucesso",
+                "projectId" to id,
+                "skillsCount" to updatedProject.requiredSkills.size,
+                "skills" to updatedProject.requiredSkills.map { 
+                    mapOf("id" to it.id, "name" to it.name) 
+                }
+            ))
+        } catch (e: IllegalArgumentException) {
+            logger.error("Erro ao sincronizar skills do projeto $id: ${e.message}")
+            return ResponseEntity.badRequest().body(mapOf("error" to e.message))
+        } catch (e: Exception) {
+            logger.error("Erro interno ao sincronizar skills do projeto $id: ${e.message}", e)
+            return ResponseEntity.internalServerError().body(mapOf("error" to "Erro interno do servidor: ${e.message}"))
+        }
+    }
+
+    /**
+     * Lista todos os membros dos teams do projeto com suas skills
+     * Útil para diagnóstico antes de sincronizar as skills
+     */
+    @GetMapping("/{id}/team-members")
+    fun listProjectTeamMembers(
+        @PathVariable id: Long,
+        @RequestHeader(value = "Authorization", required = false) authHeader: String?
+    ): ResponseEntity<Any> {
+        try {
+            logger.info("Listando membros dos teams do projeto $id")
+            val membersInfo = service.listProjectTeamMembers(id, authHeader)
+            logger.info("Membros listados com sucesso para o projeto $id")
+            return ResponseEntity.ok(membersInfo)
+        } catch (e: IllegalArgumentException) {
+            logger.error("Erro ao listar membros do projeto $id: ${e.message}", e)
+            return ResponseEntity.badRequest().body(mapOf(
+                "error" to (e.message ?: "Erro desconhecido"),
+                "type" to "IllegalArgumentException"
+            ))
+        } catch (e: Exception) {
+            logger.error("Erro interno ao listar membros do projeto $id", e)
+            e.printStackTrace()
+            return ResponseEntity.internalServerError().body(mapOf(
+                "error" to (e.message ?: "Erro desconhecido"),
+                "type" to e.javaClass.simpleName,
+                "stackTrace" to e.stackTrace.take(5).joinToString("\n") { it.toString() }
+            ))
+        }
+    }
+
+    /**
+     * Retorna informações detalhadas dos teams do projeto
+     * Inclui: nome do team, membros, skills, valor por hora e valor investido
+     */
+    @GetMapping("/{id}/team-details")
+    fun getProjectTeamDetails(
+        @PathVariable id: Long,
+        @RequestHeader(value = "Authorization", required = false) authHeader: String?
+    ): ResponseEntity<Any> {
+        try {
+            logger.info("Buscando detalhes dos teams do projeto $id")
+            val teamDetails = service.getProjectTeamDetails(id, authHeader)
+            return ResponseEntity.ok(teamDetails)
+        } catch (e: IllegalArgumentException) {
+            logger.error("Erro ao buscar detalhes dos teams do projeto $id: ${e.message}", e)
+            return ResponseEntity.badRequest().body(mapOf(
+                "error" to (e.message ?: "Erro desconhecido"),
+                "type" to "IllegalArgumentException"
+            ))
+        } catch (e: Exception) {
+            logger.error("Erro interno ao buscar detalhes dos teams do projeto $id", e)
+            e.printStackTrace()
+            return ResponseEntity.internalServerError().body(mapOf(
+                "error" to (e.message ?: "Erro desconhecido"),
+                "type" to e.javaClass.simpleName
+            ))
         }
     }
 }
