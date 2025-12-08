@@ -32,7 +32,9 @@ spring:
       mode: never
 
 server:
-  port: 8082
+  servlet:
+    context-path: /api-project
+  port: 8081
 
 management:
   endpoints:
