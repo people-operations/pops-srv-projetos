@@ -5,9 +5,9 @@ spring:
     import: optional:file:./config/values.yml
 
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/popsdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:gyulia06*}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -44,10 +44,10 @@ management:
       show-details: always
 
 firebase:
-  service-account-path: ${FIREBASE_KEY_PATH:C:\keys\pops-srv-employee-firebase-adminsdk-fbsvc-e86c8fbf1b.json}
+  service-account-path: ${FIREBASE_KEY_PATH}
 
 pops-srv-squad:
   url: ${POPS_SRV_SQUAD_URL:http://localhost:8083/api-squad}
 
 pops-srv-employee:
-  url: ${POPS_SRV_EMPLOYEE_URL:http://localhost:8081/api/employees}
+  url: ${POPS_SRV_EMPLOYEE_URL:http://localhost:8081/api-employee}
